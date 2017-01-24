@@ -1,35 +1,9 @@
-import { Meteor } from 'meteor/meteor';
-import { Mongo } from 'meteor/mongo';
-import { check } from 'meteor/check';
-
-export const Artrequests = new Mongo.Collection('artrequests');
-export const Libraries = new Mongo.Collection('libraries');
-
-
-if (Meteor.isServer) {
-  // This code only runs on the server
-  // Only publish artrequests that are public or belong to the current user
-  Meteor.publish('artrequests', function artrequestsPublication() {
-    return Artrequests.find({
-      //$or: [
-        //{ private: { $ne: true } },
-        //{ owner: this.userId },
-    //  ],
-    });
-  });
-}
+Artrequests = new Mongo.Collection('artrequests');
 
 Artrequests.allow({
   insert: function(userId, doc){
     return !!userId;
-  },
-  remove: function(userId, doc){
-    return !!userId;
   }
-});
-
-LibrarySchema = new SimpleSchema({
-
 });
 
 ArtrequestSchema = new SimpleSchema({
