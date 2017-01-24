@@ -1,3 +1,13 @@
 <template name="Artrequests">
   {{> NewRequest}}
+  <section class="artrequests">
+    {{#if Template.subscriptionsReady}}
+      {{#each artrequests}}
+      {{> Artrequest}} <!--references ./Artrequest.html -->
+    {{/each}}
+    {{else}}
+      <p>Loading...</p> <!-- spinner can be put here -->
+    {{/if}}
+  </section>
+
 </template>

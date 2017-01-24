@@ -4,3 +4,8 @@ Meteor.publish('artrequests',function(){
   //  set to only return requests belongning to the userId
   //  could be useful to only show non-completed requests
 });
+
+Meteor.publish('singleArtRequest', function(requestnum){
+  check(requestnum, String);
+  return Artrequests.find({requestnum: requestnum});
+});
