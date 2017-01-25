@@ -316,7 +316,7 @@ input, select, textarea
     trans()
     .remove-from-menu
         display none
-    &.in-menu
+    &.in-archive
         background teal
         color #FFF
         h3
@@ -333,7 +333,7 @@ input, select, textarea
         margin-bottom 10px
     button
         margin-top 20px
-    .fa-trash
+    .fa-trash, .fa-pencil
         opacity 0.3
         cursor pointer
         position absolute
@@ -347,6 +347,10 @@ input, select, textarea
         &:hover
             color red
             opacity 0.6
+    .fa-pencil
+        right 40 px
+        &:hover
+            color teal
     .ingredient
         display inline-block
         margin-right 10px
@@ -368,7 +372,7 @@ input, select, textarea
         transform translate3d(0, 0, 0)
 
 
-.menu-item
+.archive-record
     @extend .artrequest
 
 .shopping-list

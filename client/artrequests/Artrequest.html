@@ -1,9 +1,20 @@
 <template name="Artrequest">
-  <article class="artrequest">
+  <article class="artrequest {{#if archived}}in-archive{{/if}}">
+<!-- toggle-sent & toggle-archive are the functions, in Artrequest.js -->
     <h3>{{title}}</h3>
-    <p>{{requestnum}}</p>
-    <p>{{authors}}</p>
-    <a href="/artrequest/{{requestnum}}">View request</a>
-<!--    <a href="/artrequest/{{_id}}">View request</a>-->
+    {{#if editMode }}
+      {{> quickForm collection="Artrequests" id=updateArtRequestId type="update" doc=this autosave=true}}
+    {{else}}
+      <p>{{requestnum}}</p>
+      <p>{{authors}}</p>
+      <a href="/artrequest/{{requestnum}}">View request</a>
+
+  <!--    <a href="/artrequest/{{_id}}">View request</a>-->
+    {{/if}}
+
+      <i class="fa fa-pencil"></i>
+      <i class="fa fa-trash"></i>
+      <button class="btn-primary toggle-sent">Send</button>
+      <button class="btn-deny toggle-archive">Archive</button>
   </article>
 </template>

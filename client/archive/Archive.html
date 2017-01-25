@@ -1,0 +1,13 @@
+<template name="Archive">
+  <h1 class="page-title">Archived requests</h1>
+  {{#each artrequests}}
+    {{> ArchiveRecord}}
+  {{/each}}
+</template>
+
+<template name="ArchiveRecord">
+  <div class="archive-record">
+    <h3>{{title}}</h3>
+    <p>{{requestnum}}</p>
+  </div>
+</template>

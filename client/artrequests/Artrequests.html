@@ -1,10 +1,14 @@
 <template name="Artrequests">
-  {{> NewRequest}}
+    {{> NewRequest}}
+  <button class="new-request">New request</button>
   <section class="artrequests">
     {{#if Template.subscriptionsReady}}
+      <h3>Outstanding requests.</h3> <!--style this -->
       {{#each artrequests}}
-      {{> Artrequest}} <!--references ./Artrequest.html -->
-    {{/each}}
+        {{> Artrequest}} <!--references ./Artrequest.html -->
+      {{else}}
+        <h3>No outstanding requests.</h3>
+      {{/each}}
     {{else}}
       <p>Loading...</p> <!-- spinner can be put here -->
     {{/if}}
