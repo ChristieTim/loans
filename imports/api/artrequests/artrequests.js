@@ -1,3 +1,6 @@
+import { Mongo } from 'meteor/mongo';
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+
 Artrequests = new Mongo.Collection('artrequests');
 
 Artrequests.allow({

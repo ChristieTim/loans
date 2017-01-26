@@ -1,3 +1,13 @@
+import { FlowRouter } from 'meteor/kadira:flow-router';
+import { BlazeLayout } from 'meteor/kadira:blaze-layout';
+
+import '../../ui/layouts/HomeLayout.js';
+import '../../ui/layouts/MainLayout.js';
+import '../../ui/pages/Artrequest.js';
+import '../../ui/pages/Artrequests.js';
+import '../../ui/pages/ArtrequestSingle.js';
+import '../../ui/pages/NewRequest.js';
+
 Accounts.onLogin(function(){
   FlowRouter.go('current-request');
 });

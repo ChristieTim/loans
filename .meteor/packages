@@ -41,3 +41,8 @@ gwendall:auth-client-callbacks
 aldeed:simple-schema
 meteortoys:allthings
 check
+templating
+
+# security
+insecure
+# autopublish

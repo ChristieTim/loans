@@ -1,9 +1,9 @@
-Template.Artrequests.onCreated(function(){
-  var self = this;
-  self.autorun(function(){
-    self.subscribe('artrequests')
-  });
-});
+import { Mongo } from 'meteor/mongo';
+import { Template } from 'meteor/templating';
+import { FlowRouter } from 'meteor/kadira:flow-router';
+
+import '../../api/artrequests/artrequests.js';
+import './Artrequests.html'
 
 Template.Artrequests.helpers({
   artrequests: ()=> {
@@ -11,22 +11,19 @@ Template.Artrequests.helpers({
   },
   showRequest: function(){
     var sessionVar = Session.get('newRequest');
-    console.log(sessionVar);
     return sessionVar;
   }
 
 
-/*
-Template.Artrequest.helpers({
-  updateArtRequestId: function() {
-    return this._id;
-  },
-  editMode: function(){
-    return Template.instance().editMode.get();
-  }
 });
-*/
+Template.Artrequests.onCreated(function(){
+  var self = this;
+  self.autorun(function(){
+    self.subscribe('artrequests')
+  });
 });
+
+
 
 Template.Artrequests.events({
   'click .new-request': ()=> {

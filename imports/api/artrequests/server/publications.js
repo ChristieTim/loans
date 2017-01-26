@@ -1,4 +1,9 @@
-Meteor.publish('artrequests',function(){
+import { Meteor } from 'meteor/meteor';
+
+import '../artrequests.js';
+
+
+Meteor.publish('artrequests', function artrequestsPublication (){
   return Artrequests.find({})
   //  return Artrequests.find({author: this.userId})
   //  set to only return requests belongning to the userId
