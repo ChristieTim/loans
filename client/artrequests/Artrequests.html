@@ -1,6 +1,9 @@
 <template name="Artrequests">
+  {{#if showRequest }}
     {{> NewRequest}}
-  <button class="new-request">New request</button>
+  {{else}}
+    <button class="new-request">New request</button>
+  {{/if}}
   <section class="artrequests">
     {{#if Template.subscriptionsReady}}
       <h3>Outstanding requests.</h3> <!--style this -->
