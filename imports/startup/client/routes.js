@@ -8,50 +8,51 @@ import '../../ui/pages/Artrequests.js';
 import '../../ui/pages/ArtrequestSingle.js';
 import '../../ui/pages/NewRequest.js';
 
-Accounts.onLogin(function(){
+Accounts.onLogin(function () {
   FlowRouter.go('current-request');
 });
 
-Accounts.onLogout(function(){
+Accounts.onLogout(function () {
   FlowRouter.go('home');
 });
 
-FlowRouter.triggers.enter([function(context, redirect){
-  if(!Meteor.userId()){
+FlowRouter.triggers.enter([function (context, redirect) {
+  if (!Meteor.userId()) {
     FlowRouter.go('home');
-  }
-}]);
+  }},
+]);
 
-FlowRouter.route('/',{
+FlowRouter.route('/', {
   name: 'home',
   action() {
-    if(Meteor.userId()){
+    if (Meteor.userId()){
       FlowRouter.go('current-request');
     };
+
     BlazeLayout.render('HomeLayout');
-  }
+  },
 });
 
-FlowRouter.route('/current-request',{
+FlowRouter.route('/current-request', {
   name: 'current-request',
   action() {
-    BlazeLayout.render('MainLayout', {main: 'Artrequests'});
-  }
+    BlazeLayout.render('MainLayout', { main: 'Artrequests' });
+  },
 });
 
-FlowRouter.route('/artrequest/:requestnum',{
-//FlowRouter.route('/artrequest/:id',{
+FlowRouter.route('/artrequest/:requestnum', {
+  //FlowRouter.route('/artrequest/:id', {
   name: 'request-detail',
   action() {
-    BlazeLayout.render('MainLayout', {main: 'ArtrequestSingle'});
-  }
+    BlazeLayout.render('MainLayout', { main: 'ArtrequestSingle' });
+  },
 });
 
-FlowRouter.route('/archived-requests',{
+FlowRouter.route('/archived-requests', {
   name: 'archived-requests',
   action() {
-    BlazeLayout.render('MainLayout', {main: 'Archive'});
-  }
+    BlazeLayout.render('MainLayout', { main: 'Archive' });
+  },
 });
 
 /* Everything below still to be implemented

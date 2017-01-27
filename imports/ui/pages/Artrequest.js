@@ -1,32 +1,36 @@
 import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
-import './Artrequest.html'
+import './Artrequest.html';
 
-Template.Artrequest.onCreated(function(){
+Template.Artrequest.onCreated(function () {
   this.editMode = new ReactiveVar(false);
 });
 
 Template.Artrequest.helpers({
-  updateArtRequestId: function() {
+  updateArtRequestId: function () {
     return this._id;
   },
-  editMode: function(){
+
+  editMode: function () {
     return Template.instance().editMode.get();
-  }
+  },
 });
 
 Template.Artrequest.events({
-  'click .toggle-sent': function(){
+  'click .toggle-sent': function () {
     Meteor.call('toggleSent', this._id, this.sent);
   },
-  'click .toggle-archive': function(){
+
+  'click .toggle-archive': function () {
     Meteor.call('toggleArchived', this._id, this.archived);
   },
-  'click .fa-trash': function(){
+
+  'click .fa-trash': function () {
     Meteor.call('deleteRequest', this._id);
   },
-  'click .fa-pencil': function(event, template){
+
+  'click .fa-pencil': function (event, template) {
     template.editMode.set(!template.editMode.get());
-  }
+  },
 });

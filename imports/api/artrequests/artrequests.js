@@ -4,121 +4,127 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 Artrequests = new Mongo.Collection('artrequests');
 
 Artrequests.allow({
-  insert: function(userId, doc){
+  insert: function (userId, doc) {
     return !!userId;
   },
-  update: function(userId, doc){
+
+  update: function (userId, doc) {
     return !!userId;
-  }
+  },
 });
 
 ArtrequestSchema = new SimpleSchema({
   requestnum: {
     type: String,
-    label: "Request ID"
+    label: 'Request ID',
   },
-    title: {
+  title: {
       type: String,
-      label: "Title",
-      optional: true
-  },
-    journal: {
-      type: String,
-      label: "Journal",
-      optional: true
+      label: 'Title',
+      optional: true,
     },
-    authors: {
+  journal: {
       type: String,
-      label: "Author(s)",
-      optional: true
+      label: 'Journal',
+      optional: true,
     },
-    year: {
+  authors: {
       type: String,
-      label: "Request ID",
-      optional: true
+      label: 'Author(s)',
+      optional: true,
     },
-    vol: {
+  year: {
       type: String,
-      label: "Volume",
-      optional: true
+      label: 'Request ID',
+      optional: true,
     },
-    part: {
+  vol: {
       type: String,
-      label: "part",
-      optional: true
+      label: 'Volume',
+      optional: true,
     },
-    pages: {
+  part: {
       type: String,
-      label: "Pages",
-      optional: true
+      label: 'part',
+      optional: true,
     },
-    photo: {
+  pages: {
       type: String,
-      label: "Photocopy/loan",
-      optional: true
+      label: 'Pages',
+      optional: true,
     },
-    type: {
+  photo: {
       type: String,
-      label: "Book/Serial/Other",
-      optional: true
+      label: 'Photocopy/loan',
+      optional: true,
     },
-    controlnum: {
+  type: {
       type: String,
-      label: "ISBN/ISSN",
-      optional: true
+      label: 'Book/Serial/Other',
+      optional: true,
     },
-    doi: {
+  controlnum: {
       type: String,
-      label: "DOI",
-      optional: true
+      label: 'ISBN/ISSN',
+      optional: true,
     },
-    requester: {
+  doi: {
       type: String,
-      label: "Requester",
-      autoValue: function() {
-        return this.userId
+      label: 'DOI',
+      optional: true,
+    },
+  requester: {
+      type: String,
+      label: 'Requester',
+      autoValue: function () {
+        return this.userId;
       },
+
       optional: true,
       autoform: {
-        type: "hidden"
-      }
+        type: 'hidden',
+      },
     },
-    archived:{
+  archived: {
       type: Boolean,
       defaultValue: false,
       optional: true,
+
       //autoform: {
-      //  type: "hidden"
+      //  type: 'hidden'
       //}
     },
-    sent:{
+  sent: {
       type: Boolean,
       defaultValue: false,
       optional: true,
+
       //autoform: {
-      //  type: "hidden"
+      //  type: 'hidden'
       //}
-    }
+    },
 });
 
 Meteor.methods({
-  toggleSent: function(id, currentState){
-    Artrequests.update(id,{
+  toggleSent: function (id, currentState) {
+    Artrequests.update(id, {
       $set: {
-        sent: !currentState
-      }
+        sent: !currentState,
+      },
     });
   },
-  toggleArchived: function(id, currentState){
-    Artrequests.update(id,{
+
+  toggleArchived: function (id, currentState) {
+    Artrequests.update(id, {
       $set: {
-        archived: !currentState
-      }
+        archived: !currentState,
+      },
     });
   },
-  deleteRequest: function(id){
+
+  deleteRequest: function (id) {
     Artrequests.remove(id);
-  }
+  },
 });
 
-Artrequests.attachSchema( ArtrequestSchema );
+Artrequests.attachSchema(ArtrequestSchema);
