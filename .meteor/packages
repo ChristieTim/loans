@@ -44,5 +44,5 @@ check
 templating
 
 # security
-insecure
+# insecure
 # autopublish
