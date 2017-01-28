@@ -1,0 +1,17 @@
+<template name="Libraries">
+  <h1>Libraries</h1>
+    {{> NewLibrary}}
+    <button class="new-library">New library</button>
+  <section class="libraries">
+    {{#if Template.subscriptionsReady}}
+      <h3>Current.</h3> <!--style this -->
+      {{#each libraries}}
+        {{> Library}} <!--references ./Artrequest.html -->
+      {{else}}
+        <h3>No libraries.</h3>
+      {{/each}}
+    {{else}}
+      <p>Loading...</p> <!-- spinner can be put here -->
+    {{/if}}
+  </section>
+</template>

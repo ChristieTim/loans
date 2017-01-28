@@ -7,6 +7,9 @@ import '../../ui/pages/Artrequest.js';
 import '../../ui/pages/Artrequests.js';
 import '../../ui/pages/ArtrequestSingle.js';
 import '../../ui/pages/NewRequest.js';
+import '../../ui/pages/libraries/Libraries.js';
+import '../../ui/pages/libraries/Library.js';
+import '../../ui/pages/libraries/NewLibrary.js';
 
 Accounts.onLogin(function () {
   FlowRouter.go('current-request');
@@ -52,6 +55,13 @@ FlowRouter.route('/archived-requests', {
   name: 'archived-requests',
   action() {
     BlazeLayout.render('MainLayout', { main: 'Archive' });
+  },
+});
+
+FlowRouter.route('/libraries', {
+  name: 'libraries',
+  action() {
+    BlazeLayout.render('MainLayout', { main: 'Libraries' });
   },
 });
 

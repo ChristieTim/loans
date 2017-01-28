@@ -3,10 +3,11 @@ import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import '../../api/artrequests/artrequests.js';
+import '../../api/libraries/libraries.js';
 import './Artrequests.html';
 
 Template.Artrequests.helpers({
-  artrequests: ()=>{
+  artrequests: function () {
 
     //this will need to be changed to show uncompleted requests
     return Artrequests.find({ archived: false });

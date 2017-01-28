@@ -7,7 +7,7 @@ Template.ArtrequestSingle.onCreated(function () {
   var _this = this;
   _this.autorun(function () {
     var requestnum = FlowRouter.getParam('requestnum');
-    self.subscribe('singleArtRequest', requestnum);
+    _this.subscribe('singleArtRequest', requestnum);
   });
 });
 
