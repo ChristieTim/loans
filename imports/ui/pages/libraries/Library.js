@@ -8,7 +8,7 @@ Template.Library.onCreated(function () {
 });
 
 Template.Library.helpers({
-  updateArtRequestId: function () {
+  insertLibraryForm: function () {
     return this._id;
   },
 

@@ -8,8 +8,8 @@ import './Libraries.html';
 Template.Libraries.helpers({
   libraries: function () {
 
-    //this will need to be changed to show uncompleted requests
-    return Libraries.find({ archived: false });
+    //this determines what libraries are shown by default
+    return Libraries.find({});
 
   },
 
