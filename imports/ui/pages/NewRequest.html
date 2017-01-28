@@ -1,6 +1,21 @@
 <template name="NewRequest">
   <div class="new-request-container">
     <i class="fa fa-close"></i>
-    {{> quickForm collection="Artrequests" id="insertRequestForm" type="insert" class="new-request-form"}}
+    {{#autoForm collection="Artrequests" id="insertRequestForm" type="insert" class="new-request-form"}}
+    <fieldset>
+      <legend>Make a new request</legend>
+      {{> afQuickField name='requestnum'}}
+      {{> afQuickField name='title'}}
+      {{> afQuickField name='journal'}}
+      {{> afQuickField name='authors'}}
+      {{> afQuickField name='year'}}
+      {{> afQuickField name='vol'}}
+      {{> afQuickField name='part'}}
+      {{> afQuickField name='pages'}}
+      {{> afQuickField name='notes' rows=6}}
+
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Insert</button>
+    {{/autoForm}}
   </div>
 </template>

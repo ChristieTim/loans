@@ -35,7 +35,7 @@ ArtrequestSchema = new SimpleSchema({
     },
   year: {
       type: String,
-      label: 'Request ID',
+      label: 'Year',
       optional: true,
     },
   vol: {
@@ -45,7 +45,7 @@ ArtrequestSchema = new SimpleSchema({
     },
   part: {
       type: String,
-      label: 'part',
+      label: 'Part',
       optional: true,
     },
   pages: {
@@ -71,6 +71,11 @@ ArtrequestSchema = new SimpleSchema({
   doi: {
       type: String,
       label: 'DOI',
+      optional: true,
+    },
+  notes: {
+      type: String,
+      label: 'Notes',
       optional: true,
     },
   requester: {

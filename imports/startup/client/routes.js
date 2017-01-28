@@ -25,7 +25,7 @@ FlowRouter.triggers.enter([function (context, redirect) {
 FlowRouter.route('/', {
   name: 'home',
   action() {
-    if (Meteor.userId()){
+    if (Meteor.userId()) {
       FlowRouter.go('current-request');
     };
 
