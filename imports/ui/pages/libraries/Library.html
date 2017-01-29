@@ -1,6 +1,9 @@
 <template name="Library">
-  <article class="library">
-    <p>library info here</p>
-    {{libnum}}
+  <article class="artrequest">
+    <h3>{{name}}</h3>
+    <p><pre>{{location}}</pre>
+    {{postCode}}</p>
+    <p><a href="mailto:{{email}}">{{email}}</a></p>
+    <a href="/libraries/{{libnum}}">View all library details</a>
   </article>
 </template>

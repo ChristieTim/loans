@@ -9,6 +9,7 @@ import '../../ui/pages/ArtrequestSingle.js';
 import '../../ui/pages/NewRequest.js';
 import '../../ui/pages/libraries/Libraries.js';
 import '../../ui/pages/libraries/Library.js';
+import '../../ui/pages/libraries/LibrarySingle.js';
 import '../../ui/pages/libraries/NewLibrary.js';
 
 Accounts.onLogin(function () {
@@ -48,6 +49,14 @@ FlowRouter.route('/artrequest/:requestnum', {
   name: 'request-detail',
   action() {
     BlazeLayout.render('MainLayout', { main: 'ArtrequestSingle' });
+  },
+});
+
+FlowRouter.route('/libraries/:libnum', {
+  //FlowRouter.route('/artrequest/:id', {
+  name: 'library-detail',
+  action() {
+    BlazeLayout.render('MainLayout', { main: 'LibrarySingle' });
   },
 });
 

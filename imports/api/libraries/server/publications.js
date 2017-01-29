@@ -8,5 +8,5 @@ Meteor.publish('libraries', function librariesPublication() {
 
 Meteor.publish('singleLibrary', function (libnum) {
   check(libnum, String);
-  return Libraries.find({ libnum: libnum });
+  return Libraries.find({ libnum });
 });
