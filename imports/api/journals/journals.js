@@ -13,6 +13,18 @@ Journals.allow({
   },
 });
 
+LocationSchema = new SimpleSchema({
+  name: {
+    type: String,
+  },
+  Coverage: {
+    type: String,
+  },
+  Notes: {
+    type: String,
+  },
+});
+
 JournalSchema = new SimpleSchema({
   jnum: {
     type: String,
@@ -27,6 +39,10 @@ JournalSchema = new SimpleSchema({
     type: String,
     label: 'Abbreviation',
     optional: true,
+  },
+  locations: {
+    type: [LocationSchema],
+    label: 'Libraries',
   },
   issn: {
     type: String,
