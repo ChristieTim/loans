@@ -1,5 +1,8 @@
 import { Mongo } from 'meteor/mongo';
+import { Template } from 'meteor/templating';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+
+import '../libraries/libraries.js';
 
 Artrequests = new Mongo.Collection('artrequests');
 
@@ -28,6 +31,21 @@ ArtrequestSchema = new SimpleSchema({
       label: 'Journal',
       optional: true,
     },
+  reqLib: {
+    type: String,
+    label: 'Library',
+    autoform: {
+      type: String,
+      options: function () {
+        // return _.map(Libraries.find().fetch(), function (object, idx) {
+        //   return (label: object.name, value: object.value)
+        return Libraries.find({}).map(function (obj) {
+          console.log(obj.libnum);
+          return { label: obj.name, value: obj.name };
+        });
+      },
+    },
+  },
   authors: {
       type: String,
       label: 'Author(s)',

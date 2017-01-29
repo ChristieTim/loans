@@ -24,6 +24,7 @@ Template.Artrequests.onCreated(function () {
   var _this = this;
   _this.autorun(function () {
     _this.subscribe('artrequests');
+    _this.subscribe('libraries');
   });
 });
 
