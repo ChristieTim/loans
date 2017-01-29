@@ -1,0 +1,17 @@
+<template name="Journals">
+  <h1>Journals</h1>
+  {{> NewJournal}}
+  <button class="new-journal">New journal</button>
+  <section class="journals">
+    {{#if Template.subscriptionsReady}}
+      <h3>Current.</h3> <!--style this -->
+      {{#each journals}}
+        {{> Journal}} <!--references ./Artrequest.html -->
+      {{else}}
+        <h3>No journals.</h3>
+      {{/each}}
+    {{else}}
+      <p>Loading...</p> <!-- spinner can be put here -->
+    {{/if}}
+  </section>
+</template>

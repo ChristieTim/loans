@@ -1,0 +1,18 @@
+<template name="NewJournal">
+  <div class="new-journal-container">
+    <i class="fa fa-close"></i>
+    {{#autoForm collection="Journals" id="insertJournal" type="insert" class="new-journal-form"}}
+    <fieldset>
+      <legend>enter a new journal</legend>
+      {{> afQuickField name='jnum'}}
+      {{> afQuickField name='name'}}
+      {{> afQuickField name='locations'}}
+      {{> afQuickField name='issn'}}
+      {{> afQuickField name='eIssn'}}
+
+
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Insert</button>
+    {{/autoForm}}
+  </div>
+</template>

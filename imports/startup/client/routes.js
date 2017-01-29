@@ -11,6 +11,10 @@ import '../../ui/pages/libraries/Libraries.js';
 import '../../ui/pages/libraries/Library.js';
 import '../../ui/pages/libraries/LibrarySingle.js';
 import '../../ui/pages/libraries/NewLibrary.js';
+import '../../ui/pages/journals/Journal.js';
+import '../../ui/pages/journals/Journals.js';
+import '../../ui/pages/journals/JournalSingle.js';
+import '../../ui/pages/journals/NewJournal.js';
 
 Accounts.onLogin(function () {
   FlowRouter.go('current-request');
@@ -74,6 +78,19 @@ FlowRouter.route('/libraries', {
   },
 });
 
+FlowRouter.route('/journals', {
+  name: 'journals',
+  action() {
+    BlazeLayout.render('MainLayout', { main: 'Journals' });
+  },
+});
+
+FlowRouter.route('/journals/:jnum', {
+  name: 'journal-detail',
+  action() {
+    BlazeLayout.render('MainLayout', { main: 'JournalSingle' });
+  },
+});
 /* Everything below still to be implemented
 
 FlowRouter.route('/archived-request',{
