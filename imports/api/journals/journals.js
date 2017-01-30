@@ -17,10 +17,10 @@ LocationSchema = new SimpleSchema({
   name: {
     type: String,
   },
-  Coverage: {
+  coverage: {
     type: String,
   },
-  Notes: {
+  notes: {
     type: String,
   },
 });

@@ -3,6 +3,7 @@ import { Template } from 'meteor/templating';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import '../libraries/libraries.js';
+import '../journals/journals.js';
 
 Artrequests = new Mongo.Collection('artrequests');
 
@@ -23,24 +24,39 @@ ArtrequestSchema = new SimpleSchema({
   },
   title: {
       type: String,
-      label: 'Title',
+      label: 'Title/Chapter',
       optional: true,
     },
   journal: {
-      type: String,
-      label: 'Journal',
-      optional: true,
+    type: String,
+    autoform: {
+      type: 'universe-select',
+      create: true,
+      options: function () {
+        return Journals.find({}).map(function (obj) {
+          var i;
+          var x = '';
+          for (i = 0; i < obj.locations.length; i++) {
+            x += '\nSite - ' + obj.locations[i].name.toString();
+            x += ', coverage(' + obj.locations[i].coverage.toString() + ')';
+            if (obj.locations[i].notes.length > 0) {
+              x += ', Notes:' + obj.locations[i].notes.toString() + ';';
+            }
+          }
+
+          console.log(x);
+          return { label: obj.name + ': ' + x, value: obj.name };
+        });
+      },
     },
+  },
   reqLib: {
     type: String,
-    label: 'Library',
     autoform: {
-      type: String,
+      type: 'universe-select',
+      create: true,
       options: function () {
-        // return _.map(Libraries.find().fetch(), function (object, idx) {
-        //   return (label: object.name, value: object.value)
         return Libraries.find({}).map(function (obj) {
-          console.log(obj.libnum);
           return { label: obj.name, value: obj.name };
         });
       },

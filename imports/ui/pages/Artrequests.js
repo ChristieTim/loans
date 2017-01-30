@@ -25,6 +25,7 @@ Template.Artrequests.onCreated(function () {
   _this.autorun(function () {
     _this.subscribe('artrequests');
     _this.subscribe('libraries');
+    _this.subscribe('journals');
   });
 });
 
